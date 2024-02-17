@@ -31,6 +31,9 @@ def runTest():
             clicks = 0
             runCpsTimer()
             testActive = True
+            textBox.destroy()
+            timeButton.destroy()
+            
         else:
             addClick()
 
@@ -69,9 +72,28 @@ def runBufferTimer():
 
 def setBufferFalse():
     #stupid
+    #buffer 
     global buffer
     buffer = False
-    newButton.config(text=f"Your CPS was {finalCps}\nclick here to start a {timeSet} second long test!", bg='white')
+
+    #new display
+    global textBox
+    global timeButton
+    newButton.config(text=f"Your CPS was {finalCps}!", bg='white')
+
+    textBox = Entry(width = 50)
+    textBox.focus_set()
+    textBox.pack()
+    timeButton = Button(text='change time limit', width=450, height = 25, command=changeTime)
+    timeButton.pack()
+
+
+
+def changeTime():
+    global textBox
+    global timeSet
+    timeSet = int(textBox.get())
+    textBox.delete(0, END)
 
 
 #creating window
