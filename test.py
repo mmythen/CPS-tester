@@ -17,7 +17,7 @@ def addClick():
     clicks += 1
 
 #pressing button
-testActive = False;
+testActive = False
 
 def runTest():
     #accessing all global variables for use
@@ -29,7 +29,7 @@ def runTest():
         if testActive == False:
             clicks = 0
             runCpsTimer()
-            testActive = True;
+            testActive = True
         else:
             addClick()
 
